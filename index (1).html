@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Business - Premium Solutions</title>
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --space-64: 64px;
+            --radius-base: 8px;
+            --radius-lg: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--color-surface);
+            padding: var(--space-16) var(--space-32);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: var(--space-32);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(33, 128, 141, 0.08) 0%, rgba(252, 252, 249, 1) 100%);
+            padding: var(--space-64) var(--space-32);
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: var(--space-24);
+            line-height: 1.2;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-32);
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-16);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: var(--space-16) var(--space-32);
+            border-radius: var(--radius-base);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 128, 141, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--color-secondary);
+            color: var(--color-text);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(var(--color-brown-600-rgb), 0.2);
+        }
+
+        /* Features Section */
+        .features {
+            padding: var(--space-64) var(--space-32);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: var(--space-48);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-32);
+        }
+
+        .feature-card {
+            background: var(--color-surface);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: var(--space-16);
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: var(--space-12);
+        }
+
+        .feature-card p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            background: var(--color-surface);
+            padding: var(--space-64) var(--space-32);
+            text-align: center;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-32);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: var(--space-24);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: var(--space-8);
+        }
+
+        .stat-label {
+            color: var(--color-text-secondary);
+            font-size: 16px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: var(--space-64) var(--space-32);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-32);
+            margin-top: var(--space-48);
+        }
+
+        .testimonial-card {
+            background: var(--color-surface);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: var(--space-16);
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .testimonial-role {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+            color: white;
+            padding: var(--space-64) var(--space-32);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: var(--space-24);
+            color: white;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: var(--space-32);
+            opacity: 0.9;
+        }
+
+        /* Contact Form */
+        .contact {
+            padding: var(--space-64) var(--space-32);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: var(--space-24);
+        }
+
+        label {
+            display: block;
+            margin-bottom: var(--space-8);
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: var(--space-12);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            font-family: var(--font-family-base);
+            font-size: 16px;
+            background: var(--color-surface);
+            color: var(--color-text);
+        }
+
+        input:focus, textarea:focus {
+            outline: 2px solid var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-surface);
+            padding: var(--space-48) var(--space-32);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-32);
+        }
+
+        .footer-section h4 {
+            margin-bottom: var(--space-16);
+            font-size: 18px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: var(--space-8);
+        }
+
+        .footer-section a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: var(--space-48);
+            padding-top: var(--space-24);
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            nav ul {
+                gap: var(--space-16);
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">A3 Marketing Solutions</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>A3 Marketing Solutions - Venjaramoodu</h1>
+        <p>Marketing Consultancy & Service Agency delivering Awareness (A1), Action (A2), and Achievement (A3). Your complete digital marketing partner in Thiruvananthapuram.</p>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Contact Us Today</a>
+            <a href="#services" class="btn btn-secondary">Our Services</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="services" class="features">
+        <h2 class="section-title">Our Services</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Social Media Management</h3>
+                <p>Strategic social media campaigns to boost engagement and grow your online presence across all platforms.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Online Ads (Meta & Google)</h3>
+                <p>Targeted advertising campaigns on Facebook, Instagram, and Google to reach your ideal customers.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>SEO & Website Boost</h3>
+                <p>Improve your search rankings and drive organic traffic with proven SEO strategies.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Branding & Store Design</h3>
+                <p>Complete brand identity development and retail space design to stand out in the market.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎉</div>
+                <h3>Festival & Discount Campaigns</h3>
+                <p>Seasonal marketing campaigns that drive sales during festivals and special occasions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3>Business Growth Consulting</h3>
+                <p>Strategic business consulting to identify opportunities and accelerate your growth.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Market Research & Strategy</h3>
+                <p>In-depth market analysis and strategic planning to position your business for success.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🖼️</div>
+                <h3>Poster & Logo Design</h3>
+                <p>Professional graphic design services for posters, logos, and all your branding materials.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📸</div>
+                <h3>Product Photos & Video</h3>
+                <p>High-quality product photography and video production to showcase your offerings.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h3>Influencer Marketing</h3>
+                <p>Connect with the right influencers to amplify your brand message and reach new audiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <h2 class="section-title">Our A3 Approach</h2>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">A1</div>
+                <div class="stat-label">Awareness - Creating Brand Visibility</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">A2</div>
+                <div class="stat-label">Action - Driving Engagement & Sales</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">A3</div>
+                <div class="stat-label">Achievement - Ensuring Business Success</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"A3 Marketing Solutions helped us build a strong social media presence. Their creative campaigns increased our customer base significantly in Thiruvananthapuram region."</p>
+                <p class="testimonial-author">Local Business Owner</p>
+                <p class="testimonial-role">Retail Store, Venjaramoodu</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Their festival campaign strategies have been a game-changer for our sales. Professional team with excellent understanding of local market dynamics."</p>
+                <p class="testimonial-author">Restaurant Owner</p>
+                <p class="testimonial-role">Food & Beverage, Attingal</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"From branding to online ads, A3 Marketing Solutions delivered everything we needed. Great ROI and very responsive team to work with."</p>
+                <p class="testimonial-author">Business Consultant</p>
+                <p class="testimonial-role">Service Provider, TVM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Grow Your Business?</h2>
+        <p>Visit us in Venjaramoodu or call today for a free consultation</p>
+        <a href="#contact" class="btn btn-primary" style="background: white; color: var(--color-primary);">Contact Us Now</a>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" required placeholder="Tell us about your needs..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About A3 Marketing Solutions</h4>
+                <p>Marketing Consultancy & Service Agency in Venjaramoodu, Thiruvananthapuram. We deliver A1 (Awareness), A2 (Action), and A3 (Achievement) for your business success.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#services">Social Media Management</a></li>
+                    <li><a href="#services">Online Ads (Meta & Google)</a></li>
+                    <li><a href="#services">SEO & Website Boost</a></li>
+                    <li><a href="#services">Branding & Store Design</a></li>
+                    <li><a href="#services">Festival Campaigns</a></li>
+                    <li><a href="#services">Product Photos & Video</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>📧 a3marketingsolutionstvm@gmail.com</li>
+                    <li>📱 7510553798 | 8129267510</li>
+                    <li>📍 SR Building, Attingal Road, Venjaramoodu</li>
+                    <li>🕐 10:00 AM - 6:00 PM (Mon-Sat)</li>
+                    <li>📘 Facebook: a3marketingsolutions</li>
+                    <li>📷 Instagram: @a3marketingsolutionstvm</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 A3 Marketing Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Store form data in memory
+            const formData = {
+                name: name,
+                email: email,
+                phone: phone,
+                message: message,
+                timestamp: new Date().toISOString()
+            };
+            
+            console.log('Form submitted:', formData);
+            
+            // Show success message
+            alert('Thank you for contacting us! We will get back to you soon.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scroll enhancement
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation for feature cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        entry.target.style.transition = 'all 0.6s ease-out';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .testimonial-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
